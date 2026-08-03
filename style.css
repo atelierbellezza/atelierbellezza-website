@@ -507,6 +507,54 @@ a {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
+  align-items: center;
+}
+
+.cta-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.whatsapp-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  width: 100%;
+  max-width: 360px;
+  padding: 1rem 1.35rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--white);
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 14px 30px rgba(176, 95, 63, 0.18);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.whatsapp-cta:hover,
+.whatsapp-cta:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 34px rgba(176, 95, 63, 0.24);
+  background: #a55a37;
+}
+
+.whatsapp-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  background: rgba(255, 253, 249, 0.16);
+  font-size: 1.1rem;
+}
+
+.cta-note {
+  font-size: 0.95rem;
+  color: rgba(47, 38, 31, 0.72);
 }
 
 .contact-form {
@@ -810,6 +858,14 @@ a {
   .cookie-action-btn {
     width: 100%;
     flex-basis: 100%;
+  }
+
+  .contact-card {
+    grid-template-columns: 1fr;
+  }
+
+  .whatsapp-cta {
+    max-width: 100%;
   }
 
   .cookie-option {
