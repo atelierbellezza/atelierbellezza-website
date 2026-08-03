@@ -340,22 +340,22 @@ Dalla fiducia.
             </div>
 
             <form class="contact-form" id="contact-form">
-              <label>
-                Nome
-                <input type="text" name="name" placeholder="Il tuo nome" required />
+              <label for="contact-name">Nome</label>
+              <input id="contact-name" type="text" name="name" placeholder="Il tuo nome" autocomplete="given-name" required />
+
+              <label for="contact-email">Email</label>
+              <input id="contact-email" type="email" name="email" placeholder="nome@email.com" autocomplete="email" required />
+
+              <label for="contact-message">Messaggio</label>
+              <textarea id="contact-message" rows="5" name="message" placeholder="Parlami di ciò che desideri vivere." required></textarea>
+
+              <p class="form-note">I dati richiesti servono a rispondere alla tua richiesta. Puoi trovare maggiori informazioni nella <a href="privacy-policy.html">Privacy Policy</a>.</p>
+
+              <label class="consent-row" for="newsletter-consent">
+                <input id="newsletter-consent" type="checkbox" name="newsletter" />
+                <span>Acconsento a ricevere comunicazioni informative e promozionali secondo quanto descritto nella Privacy Policy.</span>
               </label>
-              <label>
-                Email
-                <input type="email" name="email" placeholder="nome@email.com" required />
-              </label>
-              <label>
-                Messaggio
-                <textarea rows="5" name="message" placeholder="Parlami di ciò che desideri vivere." required></textarea>
-              </label>
-              <label class="consent-row">
-                <input type="checkbox" name="consent" required />
-                <span>Acconsento al trattamento dei dati secondo l'informativa privacy e il consenso informato.</span>
-              </label>
+
               <button class="btn btn-primary" type="submit">Invia richiesta</button>
               <p class="form-message" id="form-message" aria-live="polite"></p>
             </form>
@@ -371,18 +371,84 @@ Dalla fiducia.
           <a href="privacy-policy.html">Privacy</a>
           <a href="cookie-policy.html">Cookie</a>
           <a href="termini-condizioni.html">Termini</a>
+          <a href="#" data-cookie-review="true">Rivedi le tue scelte sui cookie</a>
         </div>
       </footer>
 
-      <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Informativa cookie">
-        <p>Utilizziamo cookie essenziali per garantire il corretto funzionamento del sito e migliorare la tua esperienza. <a href="cookie-policy.html">Scopri di più</a>.</p>
-        <div class="cookie-actions">
-          <button class="btn btn-secondary" type="button" id="cookie-accept">Accetta</button>
-          <button class="btn btn-primary" type="button" id="cookie-dismiss">Chiudi</button>
+      <div class="cookie-banner" id="cookie-banner" role="region" aria-live="polite" aria-label="Gestione cookie" hidden>
+        <div class="cookie-banner-content">
+          <div class="cookie-banner-header">
+            <h2>Le tue scelte contano</h2>
+            <button class="cookie-close" type="button" id="cookie-close" aria-label="Rifiuta i cookie non necessari e chiudi">×</button>
+          </div>
+          <p>
+            Utilizziamo strumenti tecnici necessari al funzionamento del sito e, solo con il tuo consenso, strumenti facoltativi per statistiche, contenuti esterni e comunicazione. Puoi accettare, rifiutare o personalizzare le tue preferenze.
+          </p>
+          <div class="cookie-actions">
+            <button class="btn btn-secondary" type="button" id="cookie-reject">Rifiuta non necessari</button>
+            <button class="btn btn-secondary" type="button" id="cookie-customize">Personalizza</button>
+            <button class="btn btn-primary" type="button" id="cookie-accept-all">Accetta tutti</button>
+          </div>
+          <p class="cookie-policy-link"><a href="cookie-policy.html">Leggi la Cookie Policy</a></p>
+        </div>
+      </div>
+
+      <div class="cookie-modal" id="cookie-modal" role="dialog" aria-modal="true" aria-labelledby="cookie-modal-title" hidden>
+        <div class="cookie-modal-dialog" id="cookie-modal-dialog" tabindex="-1">
+          <div class="cookie-modal-header">
+            <h2 id="cookie-modal-title">Personalizza le tue preferenze</h2>
+            <button class="cookie-close" type="button" id="cookie-modal-close" aria-label="Chiudi la finestra di personalizzazione">×</button>
+          </div>
+          <p class="cookie-modal-intro">Scegli quali categorie di cookie desideri attivare. Le categorie tecniche restano sempre attive.</p>
+
+          <form class="cookie-form" id="cookie-form">
+            <fieldset>
+              <legend>Preferenze cookie</legend>
+              <label class="cookie-option">
+                <span>
+                  <strong>Necessari</strong>
+                  <small>Essenziali per il funzionamento e la sicurezza del sito.</small>
+                </span>
+                <input type="checkbox" checked disabled />
+                <span class="cookie-switch-label">Sempre attivi</span>
+              </label>
+
+              <label class="cookie-option">
+                <span>
+                  <strong>Preferenze</strong>
+                  <small>Consentono di ricordare alcune scelte dell’utente.</small>
+                </span>
+                <input type="checkbox" name="preferences" />
+              </label>
+
+              <label class="cookie-option">
+                <span>
+                  <strong>Statistiche</strong>
+                  <small>Consentono di comprendere in forma aggregata come viene utilizzato il sito.</small>
+                </span>
+                <input type="checkbox" name="analytics" />
+              </label>
+
+              <label class="cookie-option">
+                <span>
+                  <strong>Marketing e contenuti esterni</strong>
+                  <small>Consentono il caricamento di servizi esterni, contenuti incorporati e strumenti promozionali.</small>
+                </span>
+                <input type="checkbox" name="marketing" />
+              </label>
+            </fieldset>
+
+            <div class="cookie-modal-actions">
+              <button class="btn btn-primary" type="submit">Salva preferenze</button>
+              <button class="btn btn-secondary" type="button" id="cookie-modal-reject">Rifiuta non necessari</button>
+              <button class="btn btn-secondary" type="button" id="cookie-modal-accept-all">Accetta tutti</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
 
     <script src="script.js"></script>
+    <script src="cookie-consent.js"></script>
   </body>
 </html>

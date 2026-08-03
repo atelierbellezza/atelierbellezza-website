@@ -29,6 +29,10 @@ body {
   letter-spacing: 0.01em;
 }
 
+body.cookie-modal-open {
+  overflow: hidden;
+}
+
 .skip-link {
   position: absolute;
   left: -999px;
@@ -531,6 +535,11 @@ a {
   margin-top: 0.2rem;
 }
 
+.form-note {
+  font-size: 0.92rem;
+  color: rgba(47, 38, 31, 0.72);
+}
+
 .form-message {
   min-height: 1.2rem;
   font-size: 0.95rem;
@@ -577,31 +586,180 @@ a {
   left: 1.25rem;
   right: 1.25rem;
   bottom: 1.25rem;
+  z-index: 1500;
+  padding: 1.15rem 1.2rem;
+  border-radius: 1rem;
+  background: rgba(255, 253, 249, 0.97);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(141, 123, 106, 0.2);
+}
+
+.cookie-banner[hidden],
+.cookie-modal[hidden] {
+  display: none;
+}
+
+.cookie-banner.visible {
+  display: block;
+}
+
+.cookie-banner-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.cookie-banner-header,
+.cookie-modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  padding: 1rem 1.2rem;
-  border-radius: 1rem;
-  background: rgba(255, 253, 249, 0.97);
-  box-shadow: var(--shadow);
-  z-index: 1500;
-  border: 1px solid rgba(141, 123, 106, 0.2);
 }
 
-.cookie-banner.hidden {
-  display: none;
+.cookie-banner h2,
+.cookie-modal h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.35rem;
+  color: var(--wood);
 }
 
-.cookie-actions {
+.cookie-close {
+  border: 1px solid rgba(141, 123, 106, 0.25);
+  border-radius: 999px;
+  width: 2.2rem;
+  height: 2.2rem;
+  background: var(--white);
+  color: var(--ink);
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.cookie-close:focus-visible,
+.btn:focus-visible,
+.cookie-option input:focus-visible,
+.cookie-form a:focus-visible,
+.site-footer a:focus-visible,
+.site-nav a:focus-visible {
+  outline: 3px solid rgba(176, 95, 63, 0.35);
+  outline-offset: 3px;
+}
+
+.cookie-actions,
+.cookie-modal-actions {
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
 }
 
-.cookie-banner a {
+.cookie-policy-link {
+  font-size: 0.95rem;
+}
+
+.cookie-banner a,
+.cookie-modal a {
   color: var(--accent);
   text-decoration: underline;
+}
+
+.cookie-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1800;
+  background: rgba(47, 38, 31, 0.4);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.cookie-modal-dialog {
+  width: min(680px, 100%);
+  max-height: min(90vh, 760px);
+  overflow-y: auto;
+  border-radius: 1.25rem;
+  background: rgba(255, 253, 249, 0.97);
+  box-shadow: var(--shadow);
+  padding: 1.35rem;
+  border: 1px solid rgba(141, 123, 106, 0.2);
+}
+
+.cookie-modal-intro {
+  margin: 0.7rem 0 1rem;
+  color: rgba(47, 38, 31, 0.78);
+}
+
+.cookie-form fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.cookie-form legend {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  color: var(--wood);
+}
+
+.cookie-option {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.9rem 0;
+  border-top: 1px solid rgba(141, 123, 106, 0.15);
+}
+
+.cookie-option:first-of-type {
+  border-top: 0;
+}
+
+.cookie-option strong {
+  display: block;
+  color: var(--wood);
+}
+
+.cookie-option small {
+  display: block;
+  color: rgba(47, 38, 31, 0.72);
+  margin-top: 0.25rem;
+}
+
+.cookie-option input {
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+.cookie-switch-label {
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+
+@media (max-width: 760px) {
+  .cookie-banner {
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: 0.75rem;
+  }
+
+  .cookie-actions,
+  .cookie-modal-actions {
+    flex-direction: column;
+  }
+
+  .cookie-option {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 .site-footer div {
@@ -640,6 +798,26 @@ a {
   display: flex;
   flex-direction: column;
   gap: 0.55rem;
+}
+
+.legal-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.6rem;
+  font-size: 0.95rem;
+}
+
+.legal-table th,
+.legal-table td {
+  padding: 0.8rem 0.7rem;
+  border-bottom: 1px solid rgba(141, 123, 106, 0.16);
+  text-align: left;
+  vertical-align: top;
+}
+
+.legal-table th {
+  font-weight: 700;
+  color: var(--wood);
 }
 
 .reveal {
