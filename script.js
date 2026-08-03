@@ -2,6 +2,7 @@ const siteHeader = document.querySelector('.site-header');
 const navToggle = document.querySelector('.nav-toggle');
 const siteNav = document.querySelector('.site-nav');
 const year = document.getElementById('year');
+const backToTopButton = document.getElementById('back-to-top');
 const cookieBanner = document.getElementById('cookie-banner');
 const cookieAccept = document.getElementById('cookie-accept');
 const cookieDismiss = document.getElementById('cookie-dismiss');
@@ -10,6 +11,18 @@ const formMessage = document.getElementById('form-message');
 
 if (year) {
   year.textContent = new Date().getFullYear();
+}
+
+if (backToTopButton) {
+  const toggleBackToTop = () => {
+    backToTopButton.classList.toggle('visible', window.scrollY > 400);
+  };
+
+  toggleBackToTop();
+  window.addEventListener('scroll', toggleBackToTop, { passive: true });
+  backToTopButton.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 }
 
 if (siteHeader) {
