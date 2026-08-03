@@ -2,6 +2,11 @@ const siteHeader = document.querySelector('.site-header');
 const navToggle = document.querySelector('.nav-toggle');
 const siteNav = document.querySelector('.site-nav');
 const year = document.getElementById('year');
+const cookieBanner = document.getElementById('cookie-banner');
+const cookieAccept = document.getElementById('cookie-accept');
+const cookieDismiss = document.getElementById('cookie-dismiss');
+const contactForm = document.getElementById('contact-form');
+const formMessage = document.getElementById('form-message');
 
 if (year) {
   year.textContent = new Date().getFullYear();
@@ -29,6 +34,36 @@ if (navToggle && siteNav) {
       navToggle.classList.remove('active');
       navToggle.setAttribute('aria-expanded', 'false');
     });
+  });
+}
+
+if (cookieBanner && cookieAccept && cookieDismiss) {
+  const hasAcceptedCookies = localStorage.getItem('atelier-cookie-consent');
+
+  if (!hasAcceptedCookies) {
+    cookieBanner.classList.remove('hidden');
+  } else {
+    cookieBanner.classList.add('hidden');
+  }
+
+  const hideBanner = () => cookieBanner.classList.add('hidden');
+
+  cookieAccept.addEventListener('click', () => {
+    localStorage.setItem('atelier-cookie-consent', 'accepted');
+    hideBanner();
+  });
+
+  cookieDismiss.addEventListener('click', () => {
+    localStorage.setItem('atelier-cookie-consent', 'dismissed');
+    hideBanner();
+  });
+}
+
+if (contactForm && formMessage) {
+  contactForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    formMessage.textContent = 'Grazie. La tua richiesta è stata ricevuta e verrà gestita con attenzione.';
+    contactForm.reset();
   });
 }
 

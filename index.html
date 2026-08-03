@@ -8,6 +8,17 @@
       name="description"
       content="ATELIER DELLA BELLEZZA by Felicia è una maison di lusso dedicata alla cosmesi umanistica, dove ascolto, tempo e cura diventano il primo gesto di bellezza."
     />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="ATELIER DELLA BELLEZZA by Felicia" />
+    <meta name="theme-color" content="#f6efe8" />
+    <link rel="canonical" href="https://www.atelierdellabellezza.com/" />
+    <meta property="og:title" content="ATELIER DELLA BELLEZZA by Felicia" />
+    <meta property="og:description" content="Un luogo di ascolto, calma ed eleganza per la cura della pelle e della persona." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.atelierdellabellezza.com/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ATELIER DELLA BELLEZZA by Felicia" />
+    <meta name="twitter:description" content="Un luogo di ascolto, calma ed eleganza per la cura della pelle e della persona." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,6 +28,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Vai al contenuto</a>
     <div class="page-shell">
       <header class="site-header">
         <a class="brand" href="#hero" aria-label="ATELIER DELLA BELLEZZA by Felicia home">
@@ -30,19 +42,19 @@
           <span></span>
         </button>
 
-        <nav class="site-nav" id="site-nav">
+        <nav class="site-nav" id="site-nav" aria-label="Navigazione principale">
           <a href="#manifesto">Manifesto</a>
-          <a href="#esperienza">Esperienza</a>
-          <a href="#metodo">Metodo</a>
+          <a href="#esperienza">Esperienza Atelier</a>
+          <a href="#metodo">Il Metodo Atelier</a>
           <a href="#ospiti">Per le Ospiti</a>
           <a href="#saloni">Per i Saloni</a>
-          <a href="#felicia">Felicia</a>
+          <a href="#felicia">Chi è Felicia</a>
           <a href="#journal">Journal</a>
           <a href="#contatti">Contatti</a>
         </nav>
       </header>
 
-      <main>
+      <main id="main-content">
         <section class="hero" id="hero">
           <div class="hero-content reveal">
             <p class="eyebrow">ATELIER DELLA BELLEZZA by Felicia</p>
@@ -172,8 +184,9 @@ Dalla fiducia.
 
         <section class="section method" id="metodo">
           <div class="section-heading reveal">
-            <p class="eyebrow">Il Metodo</p>
-            <h2>Un approccio sensoriale, umano e raffinato.</h2>
+            <p class="eyebrow">Il Metodo Atelier</p>
+            <h2>Un rituale composto da ascolto, precisione e personalizzazione.</h2>
+            <p class="section-subtitle">L’esperienza non è un trattamento: è un tempo dedicato alla persona.</p>
           </div>
 
           <div class="method-layout">
@@ -326,20 +339,25 @@ Dalla fiducia.
               </ul>
             </div>
 
-            <form class="contact-form">
+            <form class="contact-form" id="contact-form">
               <label>
                 Nome
-                <input type="text" placeholder="Il tuo nome" />
+                <input type="text" name="name" placeholder="Il tuo nome" required />
               </label>
               <label>
                 Email
-                <input type="email" placeholder="nome@email.com" />
+                <input type="email" name="email" placeholder="nome@email.com" required />
               </label>
               <label>
                 Messaggio
-                <textarea rows="5" placeholder="Parlami di ciò che desideri vivere."></textarea>
+                <textarea rows="5" name="message" placeholder="Parlami di ciò che desideri vivere." required></textarea>
+              </label>
+              <label class="consent-row">
+                <input type="checkbox" name="consent" required />
+                <span>Acconsento al trattamento dei dati secondo l'informativa privacy e il consenso informato.</span>
               </label>
               <button class="btn btn-primary" type="submit">Invia richiesta</button>
+              <p class="form-message" id="form-message" aria-live="polite"></p>
             </form>
           </div>
         </section>
@@ -350,8 +368,19 @@ Dalla fiducia.
         <div>
           <a href="#hero">Home</a>
           <a href="#contatti">Contatti</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="cookie-policy.html">Cookie</a>
+          <a href="terms.html">Termini</a>
         </div>
       </footer>
+
+      <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Informativa cookie">
+        <p>Utilizziamo cookie essenziali per garantire il corretto funzionamento del sito e migliorare la tua esperienza. <a href="cookie-policy.html">Scopri di più</a>.</p>
+        <div class="cookie-actions">
+          <button class="btn btn-secondary" type="button" id="cookie-accept">Accetta</button>
+          <button class="btn btn-primary" type="button" id="cookie-dismiss">Chiudi</button>
+        </div>
+      </div>
     </div>
 
     <script src="script.js"></script>
