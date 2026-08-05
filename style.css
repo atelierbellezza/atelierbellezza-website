@@ -1566,6 +1566,15 @@ a {
     transition: opacity 0.25s ease, transform 0.25s ease;
   }
 
+  .site-nav a {
+    color: rgba(36, 24, 16, 0.95);
+  }
+
+  .site-nav a:hover,
+  .site-nav a:focus-visible {
+    color: rgba(20, 14, 10, 1);
+  }
+
   .site-nav.open {
     opacity: 1;
     pointer-events: auto;
