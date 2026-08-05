@@ -382,6 +382,134 @@ a {
   padding-top: 6rem;
 }
 
+.audience-section {
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+}
+
+.audience-section .section-heading {
+  max-width: 860px;
+  margin-bottom: 3rem;
+}
+
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(20rem, 1fr));
+  gap: 1.75rem;
+  align-items: stretch;
+}
+
+.audience-card {
+  position: relative;
+  min-height: 560px;
+  overflow: hidden;
+  border-radius: 2rem;
+  display: grid;
+  align-items: end;
+  padding: 2.4rem;
+  color: var(--white);
+  background: var(--ink);
+  box-shadow: 0 32px 72px rgba(10, 7, 5, 0.18);
+}
+
+.audience-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 253, 249, 0.05) 0%, rgba(22, 18, 15, 0.64) 100%);
+  transition: background 0.35s ease;
+}
+
+.audience-card-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.08);
+  transition: transform 24s ease, filter 0.35s ease;
+  filter: saturate(1.05) contrast(1.02);
+}
+
+.audience-card--guest .audience-card-bg {
+  background-image: url('https://images.unsplash.com/photo-1495121605193-b116b5b9c5d1?auto=format&fit=crop&w=1400&q=80');
+}
+
+.audience-card--salon .audience-card-bg {
+  background-image: url('https://images.unsplash.com/photo-1517059224940-d4af9eec41e8?auto=format&fit=crop&w=1400&q=80');
+}
+
+.audience-card--specialist .audience-card-bg {
+  background-image: url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1400&q=80');
+}
+
+.audience-card:hover .audience-card-bg,
+.audience-card:focus-within .audience-card-bg {
+  transform: scale(1.16);
+  filter: saturate(1.08) contrast(1.06);
+}
+
+.audience-card:hover::before,
+.audience-card:focus-within::before {
+  background: linear-gradient(180deg, rgba(255, 253, 249, 0.05) 0%, rgba(22, 18, 15, 0.5) 100%);
+}
+
+.audience-card-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 420px;
+}
+
+.audience-card .eyebrow {
+  color: rgba(255, 255, 255, 0.78);
+  letter-spacing: 0.22em;
+}
+
+.audience-card h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.1rem, 3vw, 2.7rem);
+  line-height: 1.05;
+  margin: 1rem 0 1rem;
+  color: var(--white);
+}
+
+.audience-card p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  line-height: 1.92;
+}
+
+.audience-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1.5rem;
+  padding: 0.95rem 1.35rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.audience-card:hover .audience-cta,
+.audience-card:focus-within .audience-cta {
+  transform: translateX(4px);
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.48);
+  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.16);
+}
+
+.audience-card--salon {
+  align-items: flex-start;
+}
+
+.audience-card--specialist {
+  align-items: center;
+}
+
 .editorial-hero {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
@@ -409,6 +537,110 @@ a {
   object-fit: cover;
   border-radius: 1.7rem;
   box-shadow: var(--shadow);
+}
+
+.trust-section,
+.autocura-section,
+.work-with-us,
+.specialist {
+  padding: 5rem 2.5rem;
+}
+
+.trust-grid,
+.work-with-us {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.trust-copy,
+.trust-panel,
+.autocura-copy,
+.project-copy {
+  background: rgba(255, 253, 249, 0.84);
+  border: 1px solid rgba(141, 123, 106, 0.16);
+  border-radius: 2rem;
+  padding: 2.2rem;
+  box-shadow: var(--shadow);
+}
+
+.trust-panel {
+  display: grid;
+  place-items: center;
+  min-height: 320px;
+  background: linear-gradient(180deg, rgba(255, 253, 249, 0.92) 0%, rgba(246, 239, 232, 0.92) 100%);
+}
+
+.trust-section .section-heading {
+  margin-bottom: 2rem;
+}
+
+.trust-list {
+  margin-top: 1.5rem;
+  padding-left: 1.2rem;
+  list-style: none;
+}
+
+.trust-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-top: 1rem;
+  color: rgba(47, 38, 31, 0.82);
+}
+
+.trust-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  color: var(--accent);
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+.autocura-copy {
+  display: grid;
+  gap: 1.3rem;
+  max-width: 720px;
+  color: rgba(47, 38, 31, 0.82);
+}
+
+.autocura-copy p {
+  font-size: 1.05rem;
+  line-height: 1.9;
+}
+
+.specialist .felicia-copy,
+.work-with-us .project-copy {
+  padding: 2rem 2.4rem;
+}
+
+.specialist .felicia-image img,
+.work-with-us .project-image img {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  object-fit: cover;
+  border-radius: 1.6rem;
+}
+
+.work-with-us .project-copy h2,
+.specialist .felicia-copy h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  margin-bottom: 1rem;
+  color: var(--wood);
+}
+
+.work-with-us .project-copy p,
+.specialist .felicia-copy p {
+  color: rgba(47, 38, 31, 0.82);
+  line-height: 1.85;
+}
+
+.work-with-us .btn-primary {
+  margin-top: 1.6rem;
 }
 
 .timeline {
@@ -1226,7 +1458,10 @@ a {
   .method-layout,
   .contact-card,
   .editorial-hero,
-  .editorial-split {
+  .editorial-split,
+  .audience-grid,
+  .trust-grid,
+  .work-with-us {
     grid-template-columns: 1fr;
   }
 
@@ -1234,6 +1469,31 @@ a {
   .salon-grid,
   .journal-grid {
     grid-template-columns: 1fr;
+  }
+
+  .audience-card {
+    min-height: 520px;
+    padding: 1.9rem;
+  }
+
+  .audience-card--salon,
+  .audience-card--specialist {
+    align-items: flex-end;
+  }
+
+  .audience-card .audience-card-bg {
+    transform: scale(1.1);
+  }
+
+  .trust-grid,
+  .work-with-us {
+    gap: 1.5rem;
+  }
+
+  .trust-panel,
+  .project-image,
+  .felicia-image {
+    min-height: 320px;
   }
 
   .editorial-fullscreen {
