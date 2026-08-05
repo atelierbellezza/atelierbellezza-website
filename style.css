@@ -408,7 +408,7 @@ a {
   align-items: end;
   padding: 2.4rem;
   color: var(--white);
-  background: var(--ink);
+  background: transparent;
   box-shadow: 0 32px 72px rgba(10, 7, 5, 0.18);
 }
 
@@ -416,7 +416,7 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(255, 253, 249, 0.05) 0%, rgba(22, 18, 15, 0.64) 100%);
+  background: linear-gradient(180deg, rgba(255, 253, 249, 0.08) 0%, rgba(22, 18, 15, 0.5) 100%);
   transition: background 0.35s ease;
 }
 
@@ -425,9 +425,17 @@ a {
   inset: 0;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   transform: scale(1.08);
   transition: transform 24s ease, filter 0.35s ease;
   filter: saturate(1.05) contrast(1.02);
+  z-index: 0;
+}
+
+.audience-card-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 420px;
 }
 
 .audience-card--guest .audience-card-bg {
