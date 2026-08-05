@@ -408,7 +408,9 @@ a {
   align-items: end;
   padding: 2.4rem;
   color: var(--white);
-  background: transparent;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   box-shadow: 0 32px 72px rgba(10, 7, 5, 0.18);
 }
 
@@ -418,6 +420,7 @@ a {
   inset: 0;
   background: linear-gradient(180deg, rgba(255, 253, 249, 0.08) 0%, rgba(22, 18, 15, 0.5) 100%);
   transition: background 0.35s ease;
+  z-index: 1;
 }
 
 .audience-card-bg {
@@ -429,7 +432,7 @@ a {
   transform: scale(1.08);
   transition: transform 24s ease, filter 0.35s ease;
   filter: saturate(1.05) contrast(1.02);
-  z-index: 0;
+  z-index: -1;
 }
 
 .audience-card-copy {
