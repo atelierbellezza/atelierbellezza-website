@@ -1161,12 +1161,18 @@ a {
 
   .manifesto-photo {
     min-height: 0;
-    height: clamp(360px, 108vw, 500px);
+    height: auto;
+    max-height: none;
+    overflow: visible;
   }
 
   .manifesto-photo img {
-    height: 100%;
-    object-position: center 30%;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 1.5rem;
   }
 
   .manifesto-logo-wrap {
