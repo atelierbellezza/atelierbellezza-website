@@ -107,8 +107,8 @@ a {
   display: block;
   width: auto;
   height: auto;
-  max-width: 260px;
-  max-height: 76px;
+  max-width: 420px;
+  max-height: 110px;
   object-fit: contain;
   flex-shrink: 0;
 }
@@ -133,14 +133,17 @@ a {
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  font-size: 0.9rem;
+  gap: 1.35rem;
+  font-size: 1.2rem;
 }
 
 .site-nav a {
   position: relative;
   padding-bottom: 0.2rem;
   color: #f7efe8;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 .site-nav a::after {
@@ -1704,8 +1707,16 @@ a {
   }
 
   .brand-logo {
-    max-width: 170px;
-    max-height: 48px;
+    max-width: 220px;
+    max-height: 62px;
+  }
+
+  .site-nav {
+    font-size: 1.06rem;
+  }
+
+  .site-nav a {
+    font-size: 1.06rem;
   }
 
   .nav-toggle {
