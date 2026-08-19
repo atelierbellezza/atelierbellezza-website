@@ -91,17 +91,25 @@ a {
 .brand {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
+  justify-content: center;
+  min-width: 0;
+  flex-shrink: 0;
   color: #f7efe8;
 }
 
 .site-header.scrolled .brand,
 .site-header.scrolled .site-nav a {
   color: var(--ink);
+}
+
+.brand-logo {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: min(24rem, 46vw);
+  max-height: clamp(2.3rem, 3vw, 3.2rem);
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 .brand-mark {
@@ -1692,6 +1700,11 @@ a {
     right: 0.75rem;
     padding: 0.9rem 1rem;
     border-radius: 999px;
+  }
+
+  .brand-logo {
+    max-width: min(17rem, 52vw);
+    max-height: 2.2rem;
   }
 
   .nav-toggle {
