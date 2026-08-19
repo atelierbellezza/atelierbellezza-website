@@ -360,6 +360,7 @@ a {
   max-width: 1200px;
   margin: 0 auto;
   padding: 7.5rem 2.5rem;
+  scroll-margin-top: 120px;
 }
 
 .section-heading {
